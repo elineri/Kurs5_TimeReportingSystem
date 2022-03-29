@@ -16,6 +16,6 @@ namespace TimeReportingSystem.Models
         [Required]
         public string Role { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }
