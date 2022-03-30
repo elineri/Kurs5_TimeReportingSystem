@@ -29,7 +29,7 @@ namespace TimeReportingSystem.API
         {
             services.AddControllers();
 
-            // EF SQL
+            // EF SQL provider
             services.AddDbContext<TimeReportDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Connection")));
         }
 

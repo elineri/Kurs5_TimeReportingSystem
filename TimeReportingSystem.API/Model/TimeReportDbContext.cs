@@ -68,9 +68,9 @@ namespace TimeReportingSystem.API.Model
 
             modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 24, EmployeeId = 6, ProjectId = 4, Date = new DateTime(2022, 02, 28), WorkedHours = 8, Note = "Testing" });
             modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 25, EmployeeId = 6, ProjectId = 4, Date = new DateTime(2022, 03, 01), WorkedHours = 8, Note = "Testing" });
-            modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 25, EmployeeId = 6, ProjectId = 3, Date = new DateTime(2022, 03, 02), WorkedHours = 8, Note = "Testing" });
-            modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 25, EmployeeId = 6, ProjectId = 4, Date = new DateTime(2022, 03, 03), WorkedHours = 8, Note = "Testing" });
-            modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 25, EmployeeId = 6, ProjectId = 3, Date = new DateTime(2022, 03, 04), WorkedHours = 8, Note = "Testing" });
+            modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 26, EmployeeId = 6, ProjectId = 3, Date = new DateTime(2022, 03, 02), WorkedHours = 8, Note = "Testing" });
+            modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 27, EmployeeId = 6, ProjectId = 4, Date = new DateTime(2022, 03, 03), WorkedHours = 8, Note = "Testing" });
+            modelBuilder.Entity<TimeReport>().HasData(new TimeReport { TimeReportId = 28, EmployeeId = 6, ProjectId = 3, Date = new DateTime(2022, 03, 04), WorkedHours = 8, Note = "Testing" });
         }
     }
 }
