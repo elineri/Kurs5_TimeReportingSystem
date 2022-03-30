@@ -15,14 +15,23 @@ namespace TimeReportingSystem.API.Services
         {
             _timeDbContext = timeDbContext;
         }
-        public Task<Employee> Add(Employee newEntity)
+        public async Task<Employee> Add(Employee newEntity)
         {
-            throw new NotImplementedException();
+            var result = await _timeDbContext.Employees.AddAsync(newEntity);
+            await _timeDbContext.SaveChangesAsync();
+            return result.Entity;
         }
 
-        public Task<Employee> Delete(int id)
+        public async Task<Employee> Delete(int id)
         {
-            throw new NotImplementedException();
+            var result = await _timeDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+            if (result != null)
+            {
+                _timeDbContext.Employees.Remove(result);
+                await _timeDbContext.SaveChangesAsync();
+                return result;
+            }
+            return null;
         }
 
         public async Task<IEnumerable<Employee>> GetAll()
@@ -30,14 +39,28 @@ namespace TimeReportingSystem.API.Services
             return await _timeDbContext.Employees.ToListAsync();
         }
 
-        public Task<Employee> GetSingle(int id)
+        public async Task<Employee> GetSingle(int id)
         {
-            throw new NotImplementedException();
+            return await _timeDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
         }
 
-        public Task<Employee> Update(Employee Entity)
+        public async Task<Employee> Update(Employee Entity)
         {
-            throw new NotImplementedException();
+            var result = await _timeDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == Entity.EmployeeId);
+            if (result != null)
+            {
+                result.FirstName = Entity.FirstName;
+                result.LastName = Entity.LastName;
+                result.PhoneNumber = Entity.PhoneNumber;
+                result.Email = Entity.Email;
+                result.Role = Entity.Role;
+                result.StartDate = Entity.StartDate;
+                result.EndDate = Entity.EndDate;
+
+                await _timeDbContext.SaveChangesAsync();
+                return result;
+            }
+            return null;
         }
     }
 }
