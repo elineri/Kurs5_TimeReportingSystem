@@ -37,6 +37,7 @@ namespace TimeReportingSystem.API
             // Register services
             services.AddScoped<ITimeReport<Employee>, EmployeeRepo>();
             services.AddScoped<ITimeReport<Project>, ProjectRepo>();
+            services.AddScoped<ITimeReport<TimeReport>, TimeReportRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
