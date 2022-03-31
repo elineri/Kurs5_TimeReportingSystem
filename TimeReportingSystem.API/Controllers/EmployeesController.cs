@@ -35,7 +35,7 @@ namespace TimeReportingSystem.API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
             try
@@ -88,7 +88,7 @@ namespace TimeReportingSystem.API.Controllers
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error to add data to database");
             }
         }
 
@@ -97,12 +97,12 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                var empToDelete = await _employees.GetSingle(id);
+                var empToDelete = await _employees.Delete(id);
                 if (empToDelete == null)
                 {
                     return NotFound($"Employee with id {id} not found");
                 }
-                return await _employees.Delete(id);
+                return NoContent();
             }
             catch (Exception)
             {

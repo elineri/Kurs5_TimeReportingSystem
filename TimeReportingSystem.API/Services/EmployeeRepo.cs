@@ -46,7 +46,7 @@ namespace TimeReportingSystem.API.Services
 
         public async Task<Employee> PersonReportedTime(int id)
         {
-            return await _timeReportContext.Employees.Include(t => t.TimeReports).ThenInclude(p => p.Project).FirstOrDefaultAsync(e => e.EmployeeId == id);
+            return await _timeReportContext.Employees.Include(t => t.TimeReports).FirstOrDefaultAsync(e => e.EmployeeId == id);
         }
 
         public async Task<Employee> Update(Employee Entity)
