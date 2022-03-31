@@ -10,55 +10,60 @@ namespace TimeReportingSystem.API.Services
 {
     public class EmployeeRepo : ITimeReport<Employee>
     {
-        private TimeReportDbContext _timeDbContext;
-        public EmployeeRepo(TimeReportDbContext timeDbContext)
+        private TimeReportDbContext _timeReportContext;
+        public EmployeeRepo(TimeReportDbContext timeReportContext)
         {
-            _timeDbContext = timeDbContext;
+            _timeReportContext = timeReportContext;
         }
         public async Task<Employee> Add(Employee newEntity)
         {
-            var result = await _timeDbContext.Employees.AddAsync(newEntity);
-            await _timeDbContext.SaveChangesAsync();
+            var result = await _timeReportContext.Employees.AddAsync(newEntity);
+            await _timeReportContext.SaveChangesAsync();
             return result.Entity;
         }
 
         public async Task<Employee> Delete(int id)
         {
-            var result = await _timeDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
-            if (result != null)
+            var toDelete = await _timeReportContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+            if (toDelete != null)
             {
-                _timeDbContext.Employees.Remove(result);
-                await _timeDbContext.SaveChangesAsync();
-                return result;
+                var result = _timeReportContext.Employees.Remove(toDelete);
+                await _timeReportContext.SaveChangesAsync();
+                return result.Entity;
             }
             return null;
         }
 
         public async Task<IEnumerable<Employee>> GetAll()
         {
-            return await _timeDbContext.Employees.ToListAsync();
+            return await _timeReportContext.Employees.ToListAsync();
         }
 
         public async Task<Employee> GetSingle(int id)
         {
-            return await _timeDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+            return await _timeReportContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+        }
+
+        public async Task<Employee> PersonReportedTime(int id)
+        {
+            return await _timeReportContext.Employees.Include(t => t.TimeReports).ThenInclude(p => p.Project).FirstOrDefaultAsync(e => e.EmployeeId == id);
         }
 
         public async Task<Employee> Update(Employee Entity)
         {
-            var result = await _timeDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == Entity.EmployeeId);
-            if (result != null)
+            var toUpdate = await _timeReportContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == Entity.EmployeeId);
+            if (toUpdate != null)
             {
-                result.FirstName = Entity.FirstName;
-                result.LastName = Entity.LastName;
-                result.PhoneNumber = Entity.PhoneNumber;
-                result.Email = Entity.Email;
-                result.Role = Entity.Role;
-                result.StartDate = Entity.StartDate;
-                result.EndDate = Entity.EndDate;
+                toUpdate.FirstName = Entity.FirstName;
+                toUpdate.LastName = Entity.LastName;
+                toUpdate.PhoneNumber = Entity.PhoneNumber;
+                toUpdate.Email = Entity.Email;
+                toUpdate.Role = Entity.Role;
+                toUpdate.StartDate = Entity.StartDate;
+                toUpdate.EndDate = Entity.EndDate;
 
-                await _timeDbContext.SaveChangesAsync();
-                return result;
+                await _timeReportContext.SaveChangesAsync();
+                return toUpdate;
             }
             return null;
         }

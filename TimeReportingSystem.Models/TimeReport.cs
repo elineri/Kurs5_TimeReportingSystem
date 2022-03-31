@@ -13,6 +13,7 @@ namespace TimeReportingSystem.Models
         public Employee Employee { get; set; }
         public int? ProjectId { get; set; }
         public Project Project { get; set; }
+
         [Required]
         public DateTime Date { get; set; }
         [Required]

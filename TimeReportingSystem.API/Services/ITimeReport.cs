@@ -12,5 +12,6 @@ namespace TimeReportingSystem.API.Services
         Task<T> Add(T newEntity);
         Task<T> Update(T Entity);
         Task<T> Delete(int id);
+        Task<T> PersonReportedTime(int id);
     }
 }

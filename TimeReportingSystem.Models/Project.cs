@@ -11,5 +11,7 @@ namespace TimeReportingSystem.Models
         public int ProjectId { get; set; }
         [Required]
         public string ProjectName { get; set; }
+        public List<TimeReport> TimeReports { get; set; }
+
     }
 }

@@ -13,11 +13,11 @@ namespace TimeReportingSystem.API.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private ITimeReport<Employee> _timereport;
+        private ITimeReport<Employee> _employees;
 
-        public EmployeesController(ITimeReport<Employee> timeReport)
+        public EmployeesController(ITimeReport<Employee> employees)
         {
-            _timereport = timeReport;
+            _employees = employees;
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                return Ok(await _timereport.GetAll());
+                return Ok(await _employees.GetAll());
 
             }
             catch (Exception)
@@ -40,7 +40,26 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                var result = await _timereport.GetSingle(id);
+                var result = await _employees.GetSingle(id);
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error to get data from database");
+            }
+        }
+
+        [HttpGet("time/{id}")]
+        public async Task<ActionResult<Employee>> GetEmployeeTime(int id)
+        {
+            try
+            {
+                var result = await _employees.PersonReportedTime(id);
                 if (result == null)
                 {
                     return NotFound();
@@ -63,7 +82,7 @@ namespace TimeReportingSystem.API.Controllers
                 {
                     return BadRequest();
                 }
-                var createdEmp = await _timereport.Add(newEmp);
+                var createdEmp = await _employees.Add(newEmp);
                 return CreatedAtAction(nameof(GetEmployee), new { id = createdEmp.EmployeeId, createdEmp });
             }
             catch (Exception)
@@ -78,12 +97,12 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                var empToDelete = await _timereport.GetSingle(id);
+                var empToDelete = await _employees.GetSingle(id);
                 if (empToDelete == null)
                 {
                     return NotFound($"Employee with id {id} not found");
                 }
-                return await _timereport.Delete(id);
+                return await _employees.Delete(id);
             }
             catch (Exception)
             {
@@ -92,7 +111,7 @@ namespace TimeReportingSystem.API.Controllers
             }
         }
 
-        [HttpPut{"{id}"]
+        [HttpPut("{id}")]
         public async Task<ActionResult<Employee>> UpdateEmployee(int id, Employee emp)
         {
             try
@@ -101,12 +120,12 @@ namespace TimeReportingSystem.API.Controllers
                 {
                     return BadRequest("Employee id does not match");
                 }
-                var empToUpdate = await _timereport.GetSingle(id);
+                var empToUpdate = await _employees.GetSingle(id);
                 if (empToUpdate == null)
                 {
                     return NotFound($"Employee with id {id} not found");
                 }
-                return await _timereport.Update(empToUpdate);
+                return await _employees.Update(empToUpdate);
             }
             catch (Exception)
             {
