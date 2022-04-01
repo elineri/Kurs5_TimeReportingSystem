@@ -12,6 +12,8 @@ namespace TimeReportingSystem.API.Services
         Task<T> Add(T newEntity);
         Task<T> Update(T Entity);
         Task<T> Delete(int id);
-        Task<T> PersonReportedTime(int id);
+        Task<T> EmployeeReportedTime(int id);
+        Task<IEnumerable<T>> ProjectEmployees(int id);
+        Task<T> EmployeeReportedTimeWeek(int id, int year, int weekNumber);
     }
 }

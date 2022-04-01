@@ -59,7 +59,7 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                var result = await _employees.PersonReportedTime(id);
+                var result = await _employees.EmployeeReportedTime(id);
                 if (result == null)
                 {
                     return NotFound();

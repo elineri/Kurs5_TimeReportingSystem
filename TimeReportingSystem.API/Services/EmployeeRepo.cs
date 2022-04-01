@@ -44,7 +44,7 @@ namespace TimeReportingSystem.API.Services
             return await _timeReportContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
         }
 
-        public async Task<Employee> PersonReportedTime(int id)
+        public async Task<Employee> EmployeeReportedTime(int id)
         {
             return await _timeReportContext.Employees.Include(t => t.TimeReports).FirstOrDefaultAsync(e => e.EmployeeId == id);
         }
@@ -66,6 +66,19 @@ namespace TimeReportingSystem.API.Services
                 return toUpdate;
             }
             return null;
+        }
+
+        public Task<IEnumerable<Employee>> ProjectEmployees(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Employee> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
+        {
+            //DateTime dt = new DateTime(year, 1, 1).AddDays((weekNumber - 1) * 7 - (weekNumber == 1 ? 0 : 1));
+            //var result = await _timeReportContext.Employees.Include(t => t.TimeReports).FirstOrDefaultAsync(e => e.EmployeeId == id);
+            throw new NotImplementedException();
+
         }
     }
 }

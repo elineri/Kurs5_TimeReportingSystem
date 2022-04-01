@@ -113,5 +113,19 @@ namespace TimeReportingSystem.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error to update database");
             }
         }
+
+        [HttpGet("{id}/employees")]
+        public async Task<ActionResult<Project>> GetProjectEmployees(int id)
+        {
+            try
+            {
+                return Ok(await _projects.ProjectEmployees(id));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error to get data from database");
+            }
+        }
     }
 }
