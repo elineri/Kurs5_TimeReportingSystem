@@ -73,7 +73,7 @@ namespace TimeReportingSystem.API.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Employee>> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
+        public Task<int> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
         {
             throw new NotImplementedException();
         }

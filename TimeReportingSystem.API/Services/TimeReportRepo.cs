@@ -72,7 +72,7 @@ namespace TimeReportingSystem.API.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<TimeReport>> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
+        public async Task<int> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
         {
             var resultEmp = await _timeReportContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
             if (resultEmp != null)
@@ -83,14 +83,17 @@ namespace TimeReportingSystem.API.Services
                                    //join e in _timeReportContext.Employees on t.EmployeeId equals e.EmployeeId
                                    //join p in _timeReportContext.Projects on t.ProjectId equals p.ProjectId
                                    where t.Date >= FirstDayOfWeek && t.Date < FirstDayOfWeek.AddDays(7) && t.EmployeeId == id
-                                   select t).ToListAsync();
-                if (timeReports != null)
+                                   select t.WorkedHours).ToListAsync();
+
+                int totalHours = 0;
+
+                foreach (var item in timeReports)
                 {
-                    return timeReports;
+                    totalHours = totalHours + item;
                 }
-                return null;
+                return totalHours;
             }
-            return null;
+            return 0;
         }
     }
 }

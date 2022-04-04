@@ -74,7 +74,7 @@ namespace TimeReportingSystem.API.Services
             return null;
         }
 
-        public Task<IEnumerable<Project>> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
+        public Task<int> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
         {
             throw new NotImplementedException();
         }

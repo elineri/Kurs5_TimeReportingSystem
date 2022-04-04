@@ -119,7 +119,7 @@ namespace TimeReportingSystem.API.Controllers
             try
             {
                 var result = await _timeReports.EmployeeReportedTimeWeek(id, year, weekNumber);
-                if (result == null)
+                if (result == 0)
                 {
                     return NotFound($"No time reports were found for employee with id {id} during {year} week {weekNumber}");
                 }
