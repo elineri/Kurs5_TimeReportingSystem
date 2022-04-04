@@ -10,7 +10,7 @@ namespace TimeReportingSystem.API.Services
 {
     public class TimeReportRepo : ITimeReport<TimeReport>
     {
-        private TimeReportDbContext _timeReportContext;
+        private readonly TimeReportDbContext _timeReportContext;
 
         public TimeReportRepo(TimeReportDbContext timeReportContext)
         {
@@ -72,9 +72,25 @@ namespace TimeReportingSystem.API.Services
             throw new NotImplementedException();
         }
 
-        public Task<TimeReport> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
+        public async Task<IEnumerable<TimeReport>> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
         {
-            throw new NotImplementedException();
+            var resultEmp = await _timeReportContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+            if (resultEmp != null)
+            {
+                DateTime FirstDayOfWeek = Methods.GetFirstDayOfWeek(year, weekNumber);
+
+                var timeReports = await(from t in _timeReportContext.TimeReports
+                                   //join e in _timeReportContext.Employees on t.EmployeeId equals e.EmployeeId
+                                   //join p in _timeReportContext.Projects on t.ProjectId equals p.ProjectId
+                                   where t.Date >= FirstDayOfWeek && t.Date < FirstDayOfWeek.AddDays(7) && t.EmployeeId == id
+                                   select t).ToListAsync();
+                if (timeReports != null)
+                {
+                    return timeReports;
+                }
+                return null;
+            }
+            return null;
         }
     }
 }

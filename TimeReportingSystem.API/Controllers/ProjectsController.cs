@@ -13,7 +13,7 @@ namespace TimeReportingSystem.API.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private ITimeReport<Project> _projects;
+        private readonly ITimeReport<Project> _projects;
 
         public ProjectsController(ITimeReport<Project> projects)
         {

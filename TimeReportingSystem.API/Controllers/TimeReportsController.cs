@@ -13,7 +13,7 @@ namespace TimeReportingSystem.API.Controllers
     [ApiController]
     public class TimeReportsController : ControllerBase
     {
-        private ITimeReport<TimeReport> _timeReports;
+        private readonly ITimeReport<TimeReport> _timeReports;
         public TimeReportsController(ITimeReport<TimeReport> timeReports)
         {
             _timeReports = timeReports;
@@ -110,6 +110,26 @@ namespace TimeReportingSystem.API.Controllers
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error to update to database");
+            }
+        }
+
+        [HttpGet("{id:int}/year={year:int}/week={weekNumber:int}")]
+        public async Task<ActionResult<TimeReport>> ReportedTimeWeek(int id, int year, int weekNumber)
+        {
+            try
+            {
+                var result = await _timeReports.EmployeeReportedTimeWeek(id, year, weekNumber);
+                if (result == null)
+                {
+                    return NotFound($"No time reports were found for employee with id {id} during {year} week {weekNumber}");
+                }
+                return Ok(result);
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error to get data from database");
             }
         }
     }

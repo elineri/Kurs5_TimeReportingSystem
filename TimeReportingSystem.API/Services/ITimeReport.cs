@@ -14,6 +14,6 @@ namespace TimeReportingSystem.API.Services
         Task<T> Delete(int id);
         Task<T> EmployeeReportedTime(int id);
         Task<IEnumerable<T>> ProjectEmployees(int id);
-        Task<T> EmployeeReportedTimeWeek(int id, int year, int weekNumber);
+        Task<IEnumerable<T>> EmployeeReportedTimeWeek(int id, int year, int weekNumber);
     }
 }

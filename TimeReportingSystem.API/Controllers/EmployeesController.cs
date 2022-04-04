@@ -13,7 +13,7 @@ namespace TimeReportingSystem.API.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private ITimeReport<Employee> _employees;
+        private readonly ITimeReport<Employee> _employees;
 
         public EmployeesController(ITimeReport<Employee> employees)
         {

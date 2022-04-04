@@ -10,7 +10,7 @@ namespace TimeReportingSystem.API.Services
 {
     public class ProjectRepo: ITimeReport<Project>
     {
-        private TimeReportDbContext _timeReportContext;
+        private readonly TimeReportDbContext _timeReportContext;
 
         public ProjectRepo(TimeReportDbContext timeReportContext)
         {
@@ -74,7 +74,7 @@ namespace TimeReportingSystem.API.Services
             return null;
         }
 
-        public Task<Project> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
+        public Task<IEnumerable<Project>> EmployeeReportedTimeWeek(int id, int year, int weekNumber)
         {
             throw new NotImplementedException();
         }
