@@ -3,12 +3,17 @@
 ## INTRODUCTION
 This is a school project to create a backend for a time reporting system. 
 
+## TABLE OF CONTENTS
+* [API-CALLS FOR PROJECT REQUIREMENTS](#API---CALLS-FOR-PROJECT-REQUIREMENTS)
+* [USING THE PROGRAM](#USING-THE-PROGRAM)
+* [ABOUT THE PROGRAM (VG)](#ABOUT-THE-PROGRAM-(VG))
+
 ## API-CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
 - https://localhost:44397/api/employees/time/1
 - For another employee change 
 
-### 2. Get all employees working with a project
+### 2. Get all employees working with a specific project
 - https://localhost:44397/api/projects/1/employees
 - To get data for another project change the id in the URL (.../projects/[id]/employees)
 
@@ -31,5 +36,12 @@ This is a school project to create a backend for a time reporting system.
 -
 -
 
-## ARCHITECTURE
+## USING THE PROGRAM
+This is only the backend of the time reporting system. Run the program and use the API-calls in your browser or in the Postman client.
+
+## ABOUT THE PROGRAM (VG)
+### Models
+The requirement for this program was to have at least three models (Employee, Project and TimeReport). I have chosen to use the TimeReport model as a joining table for many to many relationships. 
+
+### Methods/Interface
 
