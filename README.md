@@ -1,12 +1,23 @@
 # TimeReportingSystem
 
 ## INTRODUCTION
-This is a school project to create a backend for a time reporting system. 
+This is a school project to create a backend for a time reporting system. A database has been created with Entity Framework and a repository pattern has been used.
 
 ## TABLE OF CONTENTS
-* [API-CALLS FOR PROJECT REQUIREMENTS](#API---CALLS-FOR-PROJECT-REQUIREMENTS)
 * [USING THE PROGRAM](#USING-THE-PROGRAM)
 * [ABOUT THE PROGRAM (VG)](#ABOUT-THE-PROGRAM-(VG))
+* [API-CALLS FOR PROJECT REQUIREMENTS](#API---CALLS-FOR-PROJECT-REQUIREMENTS)
+
+## USING THE PROGRAM
+This is only the backend of the time reporting system. Run the program and run the API-calls in your browser or in the Postman client.
+
+## ABOUT THE PROGRAM (VG)
+### Models
+The requirement for this program was to have at least three models (Employee, Project and TimeReport) for the database. I have chosen to use the TimeReport model as a joining table for many to many relationships. You will have worked hours, date and note in the time reports and this should all be connected to an employee and which project this is connected to. So using the TimeReport model as a joining table fits perfectly i think. I haven't added any more models other than what was required but depending on the project/company that uses the time reporting system more tables could be added if necessary and connected to the TimeReport model.
+
+Properties requirements and limitation. !TODO!
+
+### Methods/Interface
 
 ## API-CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
@@ -36,12 +47,5 @@ This is a school project to create a backend for a time reporting system.
 -
 -
 
-## USING THE PROGRAM
-This is only the backend of the time reporting system. Run the program and use the API-calls in your browser or in the Postman client.
 
-## ABOUT THE PROGRAM (VG)
-### Models
-The requirement for this program was to have at least three models (Employee, Project and TimeReport). I have chosen to use the TimeReport model as a joining table for many to many relationships. 
-
-### Methods/Interface
 
