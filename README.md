@@ -20,6 +20,23 @@ Properties requirements and limitation. !TODO!
 ### Interface
 I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple. If this was a bigger program it might be a good idea to create more interfaces or if the classes didn't share as many methods as they do in this program.
 
+### Methods/Controllers
+#### All three classes implements the following methods
+- GetAll
+- GetSingle
+- Add
+- Update
+- Delete
+#### These are the class specific methods
+
+##### EmployeeReportedTime
+- This method is implemented in the EmployeeRepo class. It takes an id as input, includes TimeReports table and returns detailed information about the employee with matching id and all the connected time reports from the TimeReports table.
+- 
+##### ProjectEmployees
+- This method id implemented in the ProjectRepo class. It takes an id as input and then checks if there is a project with matching id. If the id exists then it includes the TimeReports and Employees table and returns all employees who has reported time on the project id. 
+- 
+##### EmployeeReportedTimeWeek
+
 ## API CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
 - https://localhost:44397/api/employees/time/1
