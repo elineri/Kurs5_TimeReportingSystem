@@ -1,7 +1,7 @@
 # TimeReportingSystem
 
 ## INTRODUCTION
-This is a school project to create a backend for a time reporting system. A database has been created with Entity Framework and a repository pattern has been used.
+This is a school project to create a backend for a time reporting system. A database has been created with Entity Framework and a repository pattern has been used. REST API
 
 ## TABLE OF CONTENTS
 * [USING THE PROGRAM](#USING-THE-PROGRAM)
@@ -18,7 +18,7 @@ The requirement for this program was to have at least three models (Employee, Pr
 Properties requirements and limitation. !TODO!
 
 ### Interface
-I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple.
+I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple. If this was a bigger program it might be a good idea to create more interfaces.
 
 ## API-CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
