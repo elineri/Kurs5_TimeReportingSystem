@@ -1,7 +1,7 @@
 # TimeReportingSystem
 
 ## INTRODUCTION
-This is a school project to create a backend for a time reporting system. A database has been created with Entity Framework and a repository pattern has been used. REST API
+This is a school project to create a backend for a time reporting system.
 
 ## TABLE OF CONTENTS
 * [USING THE PROGRAM](#USING-THE-PROGRAM)
@@ -12,6 +12,8 @@ This is a school project to create a backend for a time reporting system. A data
 This is only the backend of the time reporting system. Run the program and run the API-calls in your browser or in the Postman client.
 
 ## ABOUT THE PROGRAM
+The time reporting system has been created with two projects (ClassLibrary and REST-API) in the same solution. A database has been build with Entity Framework
+
 ### Models
 The requirement for this program was to have at least three models (Employee, Project and TimeReport) for the database. I have chosen to use the TimeReport model as a joining table for many to many relationships. You will have worked hours, date and note in the time reports and this should all be connected to an employee and which project this is connected to. So using the TimeReport model as a joining table fits perfectly i think. I haven't added any more models other than what was required but depending on the project/company that uses the time reporting system more tables could be added if necessary and connected to the TimeReport model.
 
