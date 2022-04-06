@@ -12,6 +12,7 @@ This is a school project to create a backend for a time reporting system.
 This is only the backend of the time reporting system. Run the program and run the API-calls in your browser or in the Postman client.
 
 ## ABOUT THE PROGRAM
+![TimeReportingSystem - Page 1](https://user-images.githubusercontent.com/91311233/161989241-149fe6d9-133d-4fce-b252-ba25eeaa0de1.png)
 The time reporting system has been created with two projects (ClassLibrary and REST-API) in the same solution. A database has been build with Entity Framework
 
 ### Models
