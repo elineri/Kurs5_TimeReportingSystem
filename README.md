@@ -6,7 +6,7 @@ This is a school project to create a backend for a time reporting system. A data
 ## TABLE OF CONTENTS
 * [USING THE PROGRAM](#USING-THE-PROGRAM)
 * [ABOUT THE PROGRAM (VG)](#ABOUT-THE-PROGRAM)
-* [API-CALLS FOR PROJECT REQUIREMENTS](#API---CALLS-FOR-PROJECT-REQUIREMENTS)
+* [API-CALLS FOR PROJECT REQUIREMENTS](#API-CALLS-FOR-PROJECT-REQUIREMENTS)
 
 ## USING THE PROGRAM
 This is only the backend of the time reporting system. Run the program and run the API-calls in your browser or in the Postman client.
@@ -20,7 +20,7 @@ Properties requirements and limitation. !TODO!
 ### Interface
 I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple. If this was a bigger program it might be a good idea to create more interfaces.
 
-## API-CALLS FOR PROJECT REQUIREMENTS
+## API CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
 - https://localhost:44397/api/employees/time/1
 - For another employee change 
