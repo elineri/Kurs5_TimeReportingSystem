@@ -27,15 +27,14 @@ I have chosen to use one interface for all classes. All classes use five base me
 - Add
 - Update
 - Delete
-#### These are the class specific methods
 
-##### EmployeeReportedTime
+#### EmployeeReportedTime
 - This method is implemented in the EmployeeRepo class. It takes an id as input, includes TimeReports table and returns detailed information about the employee with matching id and all the connected time reports from the TimeReports table.
 
-##### ProjectEmployees
+#### ProjectEmployees
 - This method is implemented in the ProjectRepo class. It takes an id as input and then checks if there is a project with matching id. If the id exists then it includes the TimeReports and Employees table and returns all employees who has reported time on the project id. 
 
-##### EmployeeReportedTimeWeek
+#### EmployeeReportedTimeWeek
 - This method is implemented in the TimeReportRepo class. It takes an id, year and week number as input. First it checks if there is an employee with the id in the system. If true it will call on the method GetFirstDayOfWeek, it will return the first day of the week (Monday) for selected year and week. The saved variable will be used to get time reports for the selected week where the employeeId is the same as the input id. The method EmployeeReportedTimeWeek will then return an integer of total hours the employee has worked that week. 
 
 ## API CALLS FOR PROJECT REQUIREMENTS
