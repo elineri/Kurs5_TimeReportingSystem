@@ -12,13 +12,12 @@ This is a school project to create a backend for a time reporting system.
 This is only the backend of the time reporting system. Run the program and run the API-calls in your browser or in the Postman client.
 
 ## ABOUT THE PROGRAM
-![TimeReportingSystem - Page 1](https://user-images.githubusercontent.com/91311233/161989241-149fe6d9-133d-4fce-b252-ba25eeaa0de1.png)
 The time reporting system has been created with two projects (ClassLibrary and REST-API) in the same solution. A database has been build with Entity Framework
 
 ### Models
-The requirement for this program was to have at least three models (Employee, Project and TimeReport) for the database. I have chosen to use the TimeReport model as a joining table for many to many relationships. You will have worked hours, date and note in the time reports and this should all be connected to an employee and which project this is connected to. So using the TimeReport model as a joining table fits perfectly i think. I haven't added any more models other than what was required but depending on the project/company that uses the time reporting system more tables could be added if necessary and connected to the TimeReport model.
+The requirement for this program was to have at least three models (Employee, Project and TimeReport) for the database. I have chosen to use the TimeReport model as a joining table for many to many relationships. You will have worked hours, date and note in the time reports and this should all be connected to an employee and which project this is connected to. So using the TimeReport model as a joining table fits perfectly. I haven't added any more models other than what was required but depending on the project/company that uses the time reporting system more tables could be added if necessary and connected to the TimeReports table.
 
-Properties requirements and limitation. !TODO!
+Properties validation has been added for some properties. Range/Length for names, phone numbers and note for time report. There's also a limit how many hours you can report per day (24 hours). Worked hours is currently an int property but this could be changed to decimal depending on if the employees should be able to report half hours as well. 
 
 ### Interface
 I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple. If this was a bigger program it might be a good idea to create more interfaces or if the classes didn't share as many methods as they do in this program.
@@ -39,6 +38,8 @@ I have chosen to use one interface for all classes. All classes use five base me
 
 #### EmployeeReportedTimeWeek
 - This method is implemented in the TimeReportRepo class. It takes an id, year and week number as input. First it checks if there is an employee with the id in the system. If true it will call on the method GetFirstDayOfWeek, it will return the first day of the week (Monday) for selected year and week. The saved variable will be used to get time reports for the selected week where the employeeId is the same as the input id. The method EmployeeReportedTimeWeek will then return an integer of total hours the employee has worked that week. 
+
+![TimeReportingSystem - Page 1](https://user-images.githubusercontent.com/91311233/161989241-149fe6d9-133d-4fce-b252-ba25eeaa0de1.png)
 
 ## API CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
