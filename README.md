@@ -55,19 +55,19 @@ I have chosen to use one interface for all classes. All classes use five base me
 - To get data for another employee, year or week edit the brackets in the URL (.../timereports/[id],year=[year]/week=[week])
 
 ### 4. Add, Update and Delete an Employee
-- 
--
--
+- [POST] https://localhost:44397/api/employees
+- [PUT] https://localhost:44397/api/employees/7
+- [DELETE] https://localhost:44397/api/employees/7
 
 ### 5. Add, Update and Delete a Project
--
--
--
+- [PUT] https://localhost:44397/api/projects
+- [PUT] https://localhost:44397/api/projects/7
+- [DELETE] https://localhost:44397/api/projects/6
 
 ### 6. Add, Update and Delete a Time report
--
--
--
+- [POST] https://localhost:44397/api/timereports
+- [PUT] https://localhost:44397/api/timereports/29
+- [DELETE] https://localhost:44397/api/timereports/29
 
 
 
