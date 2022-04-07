@@ -17,12 +17,19 @@ namespace TimeReportingSystem.Models
         [StringLength(25, MinimumLength = 2, ErrorMessage = "Firstname is required and needs to be between 2-25 characters")]
         public string LastName { get; set; }
 
+        [Range(7, 15, ErrorMessage = "Phone number must be between 7-15 digits")]
         public string PhoneNumber { get; set; }
+
         public string Email { get; set; }
         [Required]
         public string Role { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? EndDate { get; set; }
+
         public List<TimeReport> TimeReports { get; set; }
     }
 }

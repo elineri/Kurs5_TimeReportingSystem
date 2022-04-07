@@ -114,7 +114,7 @@ namespace TimeReportingSystem.API.Controllers
         }
 
         [HttpGet("{id:int}/year={year:int}/week={weekNumber:int}")]
-        public async Task<ActionResult<TimeReport>> ReportedTimeWeek(int id, int year, int weekNumber)
+        public async Task<ActionResult<int>> ReportedTimeWeek(int id, int year, int weekNumber)
         {
             try
             {
