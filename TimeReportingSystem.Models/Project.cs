@@ -9,8 +9,10 @@ namespace TimeReportingSystem.Models
     {
         [Key]
         public int ProjectId { get; set; }
+
         [Required(ErrorMessage = "Project name is required")]
         public string ProjectName { get; set; }
+
         public List<TimeReport> TimeReports { get; set; }
 
     }

@@ -80,8 +80,6 @@ namespace TimeReportingSystem.API.Services
                 DateTime FirstDayOfWeek = Methods.GetFirstDayOfWeek(year, weekNumber);
 
                 var timeReports = await(from t in _timeReportContext.TimeReports
-                                   //join e in _timeReportContext.Employees on t.EmployeeId equals e.EmployeeId
-                                   //join p in _timeReportContext.Projects on t.ProjectId equals p.ProjectId
                                    where t.Date >= FirstDayOfWeek && t.Date < FirstDayOfWeek.AddDays(7) && t.EmployeeId == id
                                    select t.WorkedHours).ToListAsync();
 
@@ -89,7 +87,7 @@ namespace TimeReportingSystem.API.Services
 
                 foreach (var item in timeReports)
                 {
-                    totalHours = totalHours + item;
+                    totalHours += item;
                 }
                 return totalHours;
             }

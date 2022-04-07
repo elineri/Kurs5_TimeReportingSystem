@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220407081808_Added validation.cs" />
+    <Compile Remove="Migrations\20220407081808_Added validation.Designer.cs" />
+    <Compile Remove="Migrations\20220407082157_Changed properties validation.cs" />
+    <Compile Remove="Migrations\20220407082157_Changed properties validation.Designer.cs" />
+    <Compile Remove="Migrations\20220407082300_changed property validation.cs" />
+    <Compile Remove="Migrations\20220407082300_changed property validation.Designer.cs" />
+    <Compile Remove="Migrations\20220407082542_Changed property validation2.cs" />
+    <Compile Remove="Migrations\20220407082542_Changed property validation2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.23">

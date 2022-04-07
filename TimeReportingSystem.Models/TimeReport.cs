@@ -20,9 +20,9 @@ namespace TimeReportingSystem.Models
 
         [Required(ErrorMessage = "Worked hours is required")]
         [Range(0, 24, ErrorMessage = "Worked hours must be between 0-24")]
-        public decimal WorkedHours { get; set; }
+        public int WorkedHours { get; set; }
 
-        [MaxLength(25, ErrorMessage = "Note can't be longer than 25 characters")]
+        [StringLength(50, MinimumLength = 0, ErrorMessage = "Note can't be longer than 25 characters")]
         public string Note { get; set; }
     }
 }
