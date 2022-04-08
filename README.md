@@ -31,8 +31,8 @@ I have chosen to use one interface for all classes. All classes use five base me
 - I have chosen to use the Include method to get connected TimeReport entities instead of a mulitple Query join to get the data grouped better. For example if you had more than one employee it would be grouped by employees and then their time reports in a sub group.
 
 #### ProjectEmployees
-- This method is implemented in the ProjectRepo class. It takes an id as input and then checks if there is a project with matching id. If the id exists then it includes the TimeReports and Employees table and returns all employees who has reported time on the project id. 
-- In this method I have chosen to use Include for TimeReports and ThenInclude for Employees to be able to get detailed information about the selected project and employees. Since this returns alot of information you might not need you can implement and use automapper to choose which data to return. 
+- This method is implemented in the Employee class. It takes an id as input and then checks if there is a project with matching id. If the id exists then it includes the TimeReports and Employees table and returns all employees who has reported time on the project id. 
+- In this method I first chose to use Include for TimeReports and ThenInclude for Employees to be able to get detailed information about the selected project and employees. This returned the information grouped so all information was inlcuded for every group block. So I changed this to only return a list of Employees without the project information. You could probably have used automapper here to choose which information to return if you also wanted to include project information. Since 
 
 #### EmployeeReportedTimeWeek
 - This method is implemented in the TimeReportRepo class. It takes an id, year and week number as input. First it checks if there is an employee with the id in the system. If true it will call on the method GetFirstDayOfWeek, it will return the first day of the week (Monday) for selected year and week. The saved variable will be used to get time reports for the selected week where the employeeId is the same as the input id. The method EmployeeReportedTimeWeek will then return an integer of total hours the employee has worked that week. 
@@ -46,8 +46,8 @@ I have chosen to use one interface for all classes. All classes use five base me
 - For another employee change id in the URL (.../employees/time/[id])
 
 ### 2. Get all employees working with a specific project
-- https://localhost:44397/api/projects/2/employees
-- To get data for another project change the id in the URL (.../projects/[id]/employees)
+- https://localhost:44397/api/employees/project/4
+- To get data for another project change the id in the URL (.../employees/project/[id])
 
 ### 3. Get the amount of hours a specific employee have worked a specific week
 - https://localhost:44397/api/timereports/1/year=2022/week=9
