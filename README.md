@@ -85,10 +85,13 @@ https://localhost:44397/api/employees/7
 ### 5. Add, Update and Delete a Project
 #### ADD [POST]
 - https://localhost:44397/api/projects
+- In Postman go to Body and select raw and JSON
+- {        "projectName": "World of Warcraft2"}
 #### UPDATE [PUT]
-- https://localhost:44397/api/projects/7
+- https://localhost:44397/api/projects/8
+- {        "projectId": 8,        "projectName": "Hogwarts Harry Potter"    }
 #### DELETE [DELETE]
-- https://localhost:44397/api/projects/6
+- https://localhost:44397/api/projects/8
 
 ### 6. Add, Update and Delete a Time report
 #### ADD [POST]
