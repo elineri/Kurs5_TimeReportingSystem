@@ -39,7 +39,7 @@ I have chosen to use one interface for all classes. All classes use five base me
 #### EmployeeReportedTimeWeek
 - This method is implemented in the TimeReportRepo class. It takes an id, year and week number as input. First it checks if there is an employee with the id in the system. If true it will call on the method GetFirstDayOfWeek, it will return the first day of the week (Monday) for selected year and week. The saved variable will be used to get time reports for the selected week where the employeeId is the same as the input id. The method EmployeeReportedTimeWeek will then return an integer of total hours the employee has worked that week. 
 
-![TimeReportingSystem - Page 1](https://user-images.githubusercontent.com/91311233/161989241-149fe6d9-133d-4fce-b252-ba25eeaa0de1.png)
+![TimeReportingSystem - Page 1 (2)](https://user-images.githubusercontent.com/91311233/162448745-e75a74f4-44db-426b-88c7-0c8239f33057.png)
 
 ## API CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
