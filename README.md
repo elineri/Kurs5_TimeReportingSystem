@@ -89,6 +89,7 @@ https://localhost:44397/api/employees/7
 - {        "projectName": "World of Warcraft2"}
 #### UPDATE [PUT]
 - https://localhost:44397/api/projects/8
+- In Postman go to Body and select raw and JSON
 - {        "projectId": 8,        "projectName": "Hogwarts Harry Potter"    }
 #### DELETE [DELETE]
 - https://localhost:44397/api/projects/8
@@ -96,8 +97,21 @@ https://localhost:44397/api/employees/7
 ### 6. Add, Update and Delete a Time report
 #### ADD [POST]
 - https://localhost:44397/api/timereports
+- In Postman go to Body and select raw and JSON
+- {     "employeeId": 1,
+        "projectId": 1,
+        "date": "2022-04-08T00:00:00",
+        "workedHours": 8,
+        "note": "Bug fixing"    }
 #### UPDATE [PUT]
-- https://localhost:44397/api/timereports/29
+- https://localhost:44397/api/timereports/30
+- In Postman go to Body and select raw and JSON
+- {    "timeReportId": 30,
+    "employeeId": 1,
+    "projectId": 1,
+    "date": "2022-04-08T00:00:00",
+    "workedHours": 8,
+    "note": "Bug fixing and maintenance"}
 #### DELETE [DELETE]
 - https://localhost:44397/api/timereports/29
 
