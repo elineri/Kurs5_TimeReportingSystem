@@ -47,7 +47,7 @@ I have chosen to use one interface for all classes. All classes use five base me
 - For another employee change 
 
 ### 2. Get all employees working with a specific project
-- https://localhost:44397/api/projects/1/employees
+- https://localhost:44397/api/projects/2/employees
 - To get data for another project change the id in the URL (.../projects/[id]/employees)
 
 ### 3. Get the amount of hours a specific employee have worked a specific week
