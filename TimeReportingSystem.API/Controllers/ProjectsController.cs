@@ -63,7 +63,7 @@ namespace TimeReportingSystem.API.Controllers
                     return BadRequest();
                 }
                 var createdProj = await _projects.Add(newProj);
-                return CreatedAtAction(nameof(GetProject), new { id = createdProj.ProjectId, createdProj });
+                return CreatedAtAction(nameof(GetProject), new { id = createdProj.ProjectId }, createdProj );
             }
             catch (Exception)
             {
@@ -96,16 +96,16 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                if (proj.ProjectId == id)
+                if (id != proj.ProjectId)
                 {
-                    var result = await _projects.Update(proj);
-                    if (result != null)
-                    {
-                        return result;
-                    }
+                    return BadRequest("Product id doesn't match");
+                }
+                var projToUpdate = await _projects.GetSingle(id);
+                if (projToUpdate == null)
+                {
                     return NotFound($"Project with id {id} not found");
                 }
-                return BadRequest("Project id does not match");
+                return await _projects.Update(proj);
             }
             catch (Exception)
             {

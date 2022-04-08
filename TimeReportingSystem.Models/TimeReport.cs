@@ -15,7 +15,7 @@ namespace TimeReportingSystem.Models
         public Project Project { get; set; }
 
         [Required(ErrorMessage = "Date is required")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Worked hours is required")]

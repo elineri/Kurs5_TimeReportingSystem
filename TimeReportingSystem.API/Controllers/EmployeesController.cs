@@ -83,7 +83,7 @@ namespace TimeReportingSystem.API.Controllers
                     return BadRequest();
                 }
                 var createdEmp = await _employees.Add(newEmp);
-                return CreatedAtAction(nameof(GetEmployee), new { id = createdEmp.EmployeeId, createdEmp });
+                return CreatedAtAction(nameof(GetEmployee), new { id = createdEmp.EmployeeId } , createdEmp );
             }
             catch (Exception)
             {
@@ -125,7 +125,7 @@ namespace TimeReportingSystem.API.Controllers
                 {
                     return NotFound($"Employee with id {id} not found");
                 }
-                return await _employees.Update(empToUpdate);
+                return await _employees.Update(emp);
             }
             catch (Exception)
             {

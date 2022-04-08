@@ -62,7 +62,7 @@ namespace TimeReportingSystem.API.Controllers
                     return BadRequest();
                 }
                 var createdTime = await _timeReports.Add(newTime);
-                return CreatedAtAction(nameof(GetTimeReport), new { id = createdTime.TimeReportId, createdTime });
+                return CreatedAtAction(nameof(GetTimeReport), new { id = createdTime.TimeReportId }, createdTime );
             }
             catch (Exception)
             {
@@ -104,7 +104,7 @@ namespace TimeReportingSystem.API.Controllers
                 {
                     return NotFound($"Time report with id {id} not found");
                 }
-                return await _timeReports.Update(timeToUpdate);
+                return await _timeReports.Update(time);
             }
             catch (Exception)
             {
@@ -121,7 +121,7 @@ namespace TimeReportingSystem.API.Controllers
                 var result = await _timeReports.EmployeeReportedTimeWeek(id, year, weekNumber);
                 if (result == 0)
                 {
-                    return NotFound($"No time reports were found for employee with id {id} during {year} week {weekNumber}");
+                    return NotFound($"No time reports were found for employee with id {id} for week {weekNumber}, {year}");
                 }
                 return Ok(result);
 
