@@ -55,19 +55,48 @@ I have chosen to use one interface for all classes. All classes use five base me
 - To get data for another employee, year or week edit the brackets in the URL (.../timereports/[id],year=[year]/week=[week])
 
 ### 4. Add, Update and Delete an Employee
-- [POST] https://localhost:44397/api/employees
-- [PUT] https://localhost:44397/api/employees/7
-- [DELETE] https://localhost:44397/api/employees/7
+#### Add [POST]
+- https://localhost:44397/api/employees
+- In Postman go to Body and select raw and JSON
+- {    "firstName": "Firstname", 
+"lastName": "LastName",
+"phoneNumber": "0700000000",
+"email": "f.lastname@company.com",
+"role": "Role",
+"startDate": "2020-05-13T00:00:00"
+ }
+ 
+#### UPDATE [PUT]
+- https://localhost:44397/api/employees/9
+- In Postman go to Body and select raw and JSON
+- {    "employeeId": 9,
+    "firstName": "Oskar",
+    "lastName": "Oskarsson",
+    "phoneNumber": "0701231876",
+    "email": "o.oskarsson@company.com",
+    "role": "Frontend developer",
+    "startDate": "2020-05-13T00:00:00",
+    "endDate": null
+}
+
+#### DELETE [DELETE]
+https://localhost:44397/api/employees/7
 
 ### 5. Add, Update and Delete a Project
-- [PUT] https://localhost:44397/api/projects
-- [PUT] https://localhost:44397/api/projects/7
-- [DELETE] https://localhost:44397/api/projects/6
+#### ADD [POST]
+- https://localhost:44397/api/projects
+#### UPDATE [PUT]
+- https://localhost:44397/api/projects/7
+#### DELETE [DELETE]
+- https://localhost:44397/api/projects/6
 
 ### 6. Add, Update and Delete a Time report
-- [POST] https://localhost:44397/api/timereports
-- [PUT] https://localhost:44397/api/timereports/29
-- [DELETE] https://localhost:44397/api/timereports/29
+#### ADD [POST]
+- https://localhost:44397/api/timereports
+#### UPDATE [PUT]
+- https://localhost:44397/api/timereports/29
+#### DELETE [DELETE]
+- https://localhost:44397/api/timereports/29
 
 
 
