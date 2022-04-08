@@ -14,30 +14,28 @@ This is only the backend of the time reporting system. Run the program and run t
 ## ABOUT THE PROGRAM
 The time reporting system has been created with two projects (ClassLibrary and REST-API) in the same solution. A database has been build with Entity Framework
 
-### Models
+### ARCHITECTURE
+
+#### Models
 The requirement for this program was to have at least three models (Employee, Project and TimeReport) for the database. I have chosen to use the TimeReport model as a joining table for many to many relationships. You will have worked hours, date and note in the time reports and this should all be connected to an employee and which project this is connected to. So using the TimeReport model as a joining table fits perfectly. I haven't added any more models other than what was required but depending on the project/company that uses the time reporting system more tables could be added if necessary and connected to the TimeReports table.
 
 Properties validation has been added for some properties. Range/Length for names, phone numbers and note for time report. There's also a limit how many hours you can report per day (24 hours). Worked hours is currently an int property but this could be changed to decimal depending on if the employees should be able to report half hours as well. 
 
-### Interface
+#### Interface
 I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple. If this was a bigger program it might be a good idea to create more interfaces or if the classes didn't share as many methods as they do in this program.
 
-### Methods/Controllers
-#### All three classes implements the following methods
-- GetAll
-- GetSingle
-- Add
-- Update
-- Delete
+### CHOICE OF TECHNIAL METHODS
 
 #### EmployeeReportedTime
 - This method is implemented in the EmployeeRepo class. It takes an id as input, includes TimeReports table and returns detailed information about the employee with matching id and all the connected time reports from the TimeReports table.
+- I have chosen to use the Include method to get connected TimeReport entities inastead of a mulitple Query join since it's more readable and simple.
 
 #### ProjectEmployees
 - This method is implemented in the ProjectRepo class. It takes an id as input and then checks if there is a project with matching id. If the id exists then it includes the TimeReports and Employees table and returns all employees who has reported time on the project id. 
 
 #### EmployeeReportedTimeWeek
 - This method is implemented in the TimeReportRepo class. It takes an id, year and week number as input. First it checks if there is an employee with the id in the system. If true it will call on the method GetFirstDayOfWeek, it will return the first day of the week (Monday) for selected year and week. The saved variable will be used to get time reports for the selected week where the employeeId is the same as the input id. The method EmployeeReportedTimeWeek will then return an integer of total hours the employee has worked that week. 
+- I have chosen to use Query syntax to get all the time reports for the selected week and employee id. You should probably use the Include method here if information about the employee or time reports should be returned, but since it works and I only want to return an integer I have chosen to keep the Query syntax.
 
 ![TimeReportingSystem - Page 1 (2)](https://user-images.githubusercontent.com/91311233/162448745-e75a74f4-44db-426b-88c7-0c8239f33057.png)
 
