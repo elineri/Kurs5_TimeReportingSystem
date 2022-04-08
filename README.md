@@ -24,7 +24,7 @@ Properties validation has been added for some properties. Range/Length for names
 #### Interface
 I have chosen to use one interface for all classes. All classes use five base methods (GetAll, GetSingle, Add, Update and Delete) and then there are three class specific methods (EmployeeReportedTime, ProjectEmployees, EmployeeReportedTimeWeek). Instead of creating more interfaces I have chosen just to not implement the class specific methods in the classes where it's not needed to keep the program more readable and simple. If this was a bigger program it might be a good idea to create more interfaces or if the classes didn't share as many methods as they do in this program.
 
-### CHOICE OF TECHNIAL METHODS
+### CHOICE OF TECHNICAL METHODS
 
 #### EmployeeReportedTime
 - This method is implemented in the EmployeeRepo class. It takes an id as input, includes TimeReports table and returns detailed information about the employee with matching id and all the connected time reports from the TimeReports table.
