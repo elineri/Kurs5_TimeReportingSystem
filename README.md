@@ -43,7 +43,7 @@ I have chosen to use one interface for all classes. All classes use five base me
 ## API CALLS FOR PROJECT REQUIREMENTS
 ### 1. Get detailed information about a specific employee and their time reports
 - https://localhost:44397/api/employees/time/1
-- For another employee change 
+- For another employee change id in the URL (.../employees/time/[id])
 
 ### 2. Get all employees working with a specific project
 - https://localhost:44397/api/projects/2/employees
