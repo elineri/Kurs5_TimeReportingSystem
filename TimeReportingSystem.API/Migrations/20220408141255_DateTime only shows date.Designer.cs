@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeReportingSystem.API.Model;
 
 namespace TimeReportingSystem.API.Migrations
 {
     [DbContext(typeof(TimeReportDbContext))]
-    partial class TimeReportDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220408141255_DateTime only shows date")]
+    partial class DateTimeonlyshowsdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

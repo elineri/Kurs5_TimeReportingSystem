@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace TimeReportingSystem.Models
@@ -15,7 +16,8 @@ namespace TimeReportingSystem.Models
         public Project Project { get; set; }
 
         [Required(ErrorMessage = "Date is required")]
-        [DisplayFormat(DataFormatString = "{yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [Column(TypeName = "Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Worked hours is required")]
