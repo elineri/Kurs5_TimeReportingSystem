@@ -99,7 +99,7 @@ https://localhost:44397/api/employees/7
 - In Postman go to Body and select raw and JSON
 - {     "employeeId": 1,
         "projectId": 1,
-        "date": "2022-04-08T00:00:00",
+        "date": "2022-04-08",
         "workedHours": 8,
         "note": "Bug fixing"    }
 #### UPDATE [PUT]
@@ -108,7 +108,7 @@ https://localhost:44397/api/employees/7
 - {    "timeReportId": 30,
     "employeeId": 1,
     "projectId": 1,
-    "date": "2022-04-08T00:00:00",
+    "date": "2022-04-08",
     "workedHours": 8,
     "note": "Bug fixing and maintenance"}
 #### DELETE [DELETE]
