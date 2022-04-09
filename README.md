@@ -74,7 +74,7 @@ I have chosen to use one interface for all classes. All classes use five base me
     "phoneNumber": "0701231876",
     "email": "o.oskarsson@company.com",
     "role": "Frontend developer",
-    "startDate": "2020-05-13T00:00:00",
+    "startDate": "2020-05-13",
     "endDate": null
 }
 
