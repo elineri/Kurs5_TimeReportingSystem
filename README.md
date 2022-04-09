@@ -62,7 +62,7 @@ I have chosen to use one interface for all classes. All classes use five base me
 "phoneNumber": "0700000000",
 "email": "f.lastname@company.com",
 "role": "Role",
-"startDate": "2020-05-13T00:00:00"
+"startDate": "2020-05-13"
  }
  
 #### UPDATE [PUT]
