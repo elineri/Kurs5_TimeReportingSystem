@@ -69,7 +69,7 @@ namespace TimeReportingSystem.API.Services
             var result = await _timeReportContext.Projects.FirstOrDefaultAsync(p => p.ProjectId == id);
             if (result != null)
             {
-                return await _timeReportContext.Projects.Include(t => t.TimeReports).ThenInclude(e => e.Employee).Where(p => p.ProjectId == id).ToListAsync();
+                return await _timeReportContext.Projects.Include(t => t.TimeReports).ThenInclude(e => e.Employee).Where(p => p.ProjectId == id).Distinct().ToListAsync();
             }
             return null;
         }

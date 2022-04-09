@@ -119,7 +119,12 @@ namespace TimeReportingSystem.API.Controllers
         {
             try
             {
-                return Ok(await _projects.ProjectEmployees(id));
+                var result = await _projects.ProjectEmployees(id);
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                return NotFound();
             }
             catch (Exception)
             {

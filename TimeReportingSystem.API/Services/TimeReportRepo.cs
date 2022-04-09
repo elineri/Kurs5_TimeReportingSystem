@@ -79,9 +79,9 @@ namespace TimeReportingSystem.API.Services
             {
                 DateTime FirstDayOfWeek = Methods.GetFirstDayOfWeek(year, weekNumber);
 
-                var timeReports = await(from t in _timeReportContext.TimeReports
-                                   where t.Date >= FirstDayOfWeek && t.Date < FirstDayOfWeek.AddDays(7) && t.EmployeeId == id
-                                   select t.WorkedHours).ToListAsync();
+                var timeReports = await (from t in _timeReportContext.TimeReports
+                                         where t.Date >= FirstDayOfWeek && t.Date < FirstDayOfWeek.AddDays(7) && t.EmployeeId == id
+                                         select t.WorkedHours).ToListAsync();
 
                 int totalHours = 0;
 
