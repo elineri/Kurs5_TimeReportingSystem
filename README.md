@@ -1,7 +1,7 @@
 # TimeReportingSystem
 
 ## INTRODUCTION
-This is a school project to create a backend for a time reporting system.
+This is a school project to create a backend for a time reporting system. 
 
 ## TABLE OF CONTENTS
 * [USING THE PROGRAM](#USING-THE-PROGRAM)
